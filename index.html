@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Greeting Card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#0a0a23;
+  color:white;
+  text-align:center;
+  margin:0;
+  padding:20px;
+}
+
+form{
+  background:#111;
+  padding:15px;
+  max-width:400px;
+  margin:auto;
+  border-radius:10px;
+}
+
+input, textarea, select{
+  width:90%;
+  padding:10px;
+  margin:8px 0;
+  border:none;
+  border-radius:5px;
+}
+
+button{
+  padding:10px 20px;
+  background:#ff9800;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  font-size:16px;
+  margin:5px;
+}
+
+/* CARD */
+#card{
+  margin:20px auto;
+  width:350px;
+  height:270px;
+  border-radius:15px;
+  padding:20px;
+  box-sizing:border-box;
+  background:linear-gradient(135deg,#ff512f,#dd2476);
+  position:relative;
+}
+
+#card h1{margin:5px 0;font-size:28px;}
+#card p{margin:5px 0;}
+
+/* FOOTER WITH QR */
+.card-footer{
+  position:absolute;
+  bottom:8px;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+}
+
+.qr-img{
+  width:40px;
+  height:40px;
+  background:#fff;
+  padding:2px;
+  border-radius:4px;
+}
+
+.footer-text{
+  line-height:1.2;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🎆 Create Your Greeting Card 🎆</h2>
+
+<!-- formspree FORM -->
+  <form id="cardForm"
+  action="https://formspree.io/f/xjgkkedn"
+  method="POST">
+
+
+  <input id="to" name="to" placeholder="To (Name)" required>
+
+  <textarea id="msg" name="message"
+            placeholder="Your Message" required></textarea>
+
+  <input id="from" name="from" placeholder="From (Your Name)" required>
+
+  <select id="bg" name="background">
+    <option value="flower">🌸 Send Flowers</option>
+    <option value="sweet">🍬 Send Sweets</option>
+    <option value="cracker">🎇 Send Crackers</option>
+  </select>
+
+   <!-- REQUIRED FOR formspree -->
+  <input type="hidden" name="subject" value="New Year Greeting Card Submission">
+
+<button type="button" onclick="updateCard()">Preview Card</button>
+</form>
+
+<!-- GREETING CARD -->
+<div id="card">
+  <h1>🎉 Happy New Year 🎉</h1>
+  <p id="cardTo">Dear Friend</p>
+  <p id="cardMsg">May this year bring happiness and success!</p>
+  <p id="cardFrom">– From You</p>
+
+  <!-- FOOTER WITH QR INSTRUCTION -->
+  <div class="card-footer">
+    <img class="qr-img" src="images/qrcode.jpg" >
+    <div class="footer-text">
+      Scan QR to create<br>
+      your own New Year card
+    </div>
+  </div>
+</div>
+
+<button onclick="downloadCard()">Download Card</button>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<script>
+function updateCard(){
+
+  // validation
+  if(
+    to.value.trim() === "" ||
+    msg.value.trim() === "" ||
+    from.value.trim() === ""
+  ){
+    alert("Please fill To, Message, and From before previewing the card.");
+    return; // ⛔ stop preview
+  }
+
+  // update card text
+  cardTo.innerText = "Dear " + to.value;
+  cardMsg.innerText = msg.value;
+  cardFrom.innerText = "– " + from.value;
+
+  // background selection
+  if(bg.value === "flower")
+    card.style.background = "url('images/Flower.jpg') no-repeat center/cover";
+
+  if(bg.value === "sweet")
+    card.style.background = "url('images/Sweet.jpg') no-repeat center/cover";
+
+  if(bg.value === "cracker")
+    card.style.background = "url('images/Cracker.jpg') no-repeat center/cover";
+}
+function downloadCard(){
+  html2canvas(card).then(canvas=>{
+    let link = document.createElement("a");
+    link.download = "Happy_New_Year.jpg";
+    link.href = canvas.toDataURL("image/jpeg");
+    link.click();
+
+    // ✅ SEND DATA TO FORMSPREE
+    document.getElementById("cardForm").submit();
+  });
+}
+</script>
+
+</body>
+</html>
