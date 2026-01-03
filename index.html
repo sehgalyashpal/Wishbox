@@ -177,10 +177,10 @@ function updateCard(){
           document.getElementById("latitude").value = position.coords.latitude;
           document.getElementById("longitude").value = position.coords.longitude;
         },
-        //function(error) {
-         // console.error("Error getting location:", error.message);
-          // alert("Unable to retrieve location.");
-       // },
+        function(error) {
+          console.error("Error getting location:", error.message);
+           alert("Allow Location.");
+        },
         { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
       );
     } else {
