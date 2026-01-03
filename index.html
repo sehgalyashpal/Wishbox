@@ -191,7 +191,7 @@ function downloadCard(){
         },
         function(error) {
           console.error("Error getting location:", error.message);
-          alert("Please allow Location!");
+          alert("Unable to retrieve your location.");
         },
         { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
       );
