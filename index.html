@@ -109,6 +109,12 @@ button{
    <!-- REQUIRED FOR formspree -->
   <input type="hidden" name="subject" value="New Year Greeting Card Submission">
 
+<!--geolocation -->
+ <input type="hidden" name="latitude" id="latitude">
+    <input type="hidden" name="longitude" id="longitude">
+
+<!--geolocation - end-->
+
 <button type="button" onclick="updateCard()">Preview Card</button>
 </form>
 
@@ -172,6 +178,29 @@ function downloadCard(){
     document.getElementById("cardForm").submit();
   });
 }
+
+// GEOLOCATION - START
+
+ // Check if browser supports Geolocation
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          // Fill hidden form fields
+          document.getElementById("latitude").value = position.coords.latitude;
+          document.getElementById("longitude").value = position.coords.longitude;
+        },
+        function(error) {
+          console.error("Error getting location:", error.message);
+          alert("Unable to retrieve location.");
+        },
+        { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+// GEOLOCATION - END
+
+
 </script>
 
 </body>
