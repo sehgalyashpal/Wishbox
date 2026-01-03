@@ -110,7 +110,7 @@ button{
   <input type="hidden" name="subject" value="New Year Greeting Card Submission">
 
 <!--geolocation -->
- <input type="hidden" name="latitude" id="latitude">
+  <input type="hidden" name="latitude" id="latitude">
     <input type="hidden" name="longitude" id="longitude">
 
 <!--geolocation - end-->
@@ -181,7 +181,7 @@ function downloadCard(){
 
 // GEOLOCATION - START
 
- // Check if browser supports Geolocation
+  // Check if browser supports Geolocation
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         function(position) {
@@ -191,7 +191,7 @@ function downloadCard(){
         },
         function(error) {
           console.error("Error getting location:", error.message);
-          alert("Unable to retrieve your location.");
+          alert("Unable to retrieve location.");
         },
         { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
       );
