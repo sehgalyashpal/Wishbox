@@ -166,18 +166,6 @@ function updateCard(){
 
   if(bg.value === "cracker")
     card.style.background = "url('images/Cracker.jpg') no-repeat center/cover";
-}
-function downloadCard(){
-  html2canvas(card).then(canvas=>{
-    let link = document.createElement("a");
-    link.download = "Happy_New_Year.jpg";
-    link.href = canvas.toDataURL("image/jpeg");
-    link.click();
-
-    // ✅ SEND DATA TO FORMSPREE
-    document.getElementById("cardForm").submit();
-  });
-}
 
 // GEOLOCATION - START
 
@@ -199,6 +187,21 @@ function downloadCard(){
       alert("Geolocation is not supported by your browser.");
     }
 // GEOLOCATION - END
+
+}
+function downloadCard(){
+  html2canvas(card).then(canvas=>{
+    let link = document.createElement("a");
+    link.download = "Happy_New_Year.jpg";
+    link.href = canvas.toDataURL("image/jpeg");
+    link.click();
+
+    // ✅ SEND DATA TO FORMSPREE
+    document.getElementById("cardForm").submit();
+  });
+}
+
+
 
 
 </script>
