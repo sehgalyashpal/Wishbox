@@ -55,15 +55,20 @@ button{
 
 /* CARD */
 #card{
-  margin:20px auto;
+  margin:16px auto;
   width:100%;
-  max-width:350px; 
-  min-height:270px;
-  border-radius:15px;
-  padding:20px;
+  max-width:360px;        /* Perfect for mobile screens */
+  min-height:260px;       /* Enough space without looking empty */
+  border-radius:16px;     /* Smooth, modern corners */
+  padding:18px;           /* Balanced inner spacing */
   box-sizing:border-box;
   background:linear-gradient(135deg,#ff512f,#dd2476);
   position:relative;
+box-shadow:
+  0 0 3px rgba(255, 183, 77, 0.4),
+  0 0 5px rgba(244, 143, 177, 0.3),
+  0 0 7px rgba(255, 112, 67, 0.3);
+    
 }
 
 #card h1{margin:5px 0;font-size:28px;}
