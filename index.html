@@ -125,9 +125,10 @@ box-shadow:
 <h2>🎆 Create Your Greeting Card 🎆</h2>
 
 <!-- formspree FORM -->
-  <form id="cardForm"
+  <form name="cardForm" method="POST" data-netlify="true">
+ <!-- <form id="cardForm"
   action="https://formspree.io/f/xjgkkedn"
-  method="POST">
+  method="POST"> -->
 
 
   <input id="to" name="to" placeholder="To (Name)" required>
@@ -144,7 +145,7 @@ box-shadow:
   </select>
 
    <!-- REQUIRED FOR formspree -->
-  <input type="hidden" name="subject" value="Greeting Card">
+<!--  <input type="hidden" name="subject" value="Greeting Card"> -->
 
 <!--geolocation -->
   <input type="hidden" name="latitude" id="latitude">
