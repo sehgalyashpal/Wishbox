@@ -17,7 +17,7 @@ html, body{
 
 body{
   font-family: Arial, sans-serif;
-  background: url("images/imgBG.jpg") no-repeat center/cover;
+  background: url("images/GoodMor.jpg") no-repeat center/cover;
   color:white;
   text-align:center;
   margin:0;
@@ -124,10 +124,16 @@ box-shadow:
 
 <h2>🎆 Create Your Greeting Card 🎆</h2>
 
-<!-- formspree FORM -->
+<!-- formspree FORM 
   <form id="cardForm"
   action="https://formspree.io/f/xjgkkedn"
-  method="POST">
+  method="POST">   -->
+<form id="cardForm"
+      name="greeting-card"
+      method="POST"
+      data-netlify="true">
+      
+  <input type="hidden" name="form-name" value="greeting-card">
 
 
   <input id="to" name="to" placeholder="To (Name)" required>
@@ -143,8 +149,8 @@ box-shadow:
     <option value="cracker">🎇 Send Crackers</option>
   </select>
 
-   <!-- REQUIRED FOR formspree -->
-  <input type="hidden" name="subject" value="Greeting Card">
+   <!-- REQUIRED FOR formspree 
+  <input type="hidden" name="subject" value="Greeting Card">  -->
 
 <!--geolocation -->
   <input type="hidden" name="latitude" id="latitude">
