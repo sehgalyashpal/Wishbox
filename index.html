@@ -131,6 +131,7 @@ box-shadow:
 <form id="cardForm"
       name="greeting-card"
       method="POST"
+      action="/"
       data-netlify="true">
       
   <input type="hidden" name="form-name" value="greeting-card">
@@ -163,7 +164,7 @@ box-shadow:
 
 <!--<input id="rd" type="hidden" name="_redirect" value="https://wishboxgreetings.netlify.app"> -->
 
-
+<button type="submit" hidden>Submit</button>
 </form>
 
 <!-- GREETING CARD -->
@@ -256,7 +257,11 @@ function downloadCard(){
 //chat gpt suggest
 document.getElementById("successMsg").style.display = "block";
 
-    document.getElementById("cardForm").submit();
+   // document.getElementById("cardForm").submit();
+
+   setTimeout(() => {
+  document.getElementById("cardForm").requestSubmit();
+}, 300);
     
   });
 }
