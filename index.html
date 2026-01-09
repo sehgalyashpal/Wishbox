@@ -17,8 +17,8 @@ html, body{
 
 body{
   font-family: Arial, sans-serif;
-  background: url("images/imgBG.jpg") no-repeat center/cover;
-  color:white;
+  background: url("images/imgBGs.jpg") no-repeat center/cover;
+  color:rgb(128, 6, 30);
   text-align:center;
   margin:0;
   padding:10px;
@@ -65,9 +65,9 @@ button{
   background:linear-gradient(135deg,#ff512f,#dd2476);
   position:relative;
 box-shadow:
-  0 0 3px rgba(255, 183, 77, 0.4),
-  0 0 5px rgba(244, 143, 177, 0.3),
-  0 0 7px rgba(255, 112, 67, 0.3);
+  0 0 1px rgba(255, 183, 77, 0.4),
+  0 0 1px rgba(244, 143, 177, 0.3),
+  0 0 1px rgba(255, 112, 67, 0.3);
     
 }
 
@@ -122,7 +122,7 @@ box-shadow:
 
 <body>
 
-<h2>🎆 Create Your Greeting Card 🎆</h2>
+<h2 style="color:#662066">🎆 Create Your Greeting Card 🎆</h2>
 
 <!-- formspree FORM -->
   <form id="cardForm"
@@ -209,7 +209,7 @@ function updateCard(){
     card.style.background = "url('images/Flower.jpg') no-repeat center/cover";
 
   if(bg.value === "sweet")
-    card.style.background = "url('images/Sweet.jpg') no-repeat center/cover";
+    card.style.background = "url('images/Sweets.jpg') no-repeat center/cover";
 
   if(bg.value === "cracker")
     card.style.background = "url('images/Cracker.jpg') no-repeat center/cover";
