@@ -17,7 +17,7 @@ html, body{
 
 body{
   font-family: Arial, sans-serif;
-  background: url("images/imgBGs.jpg") no-repeat center/cover;
+  background: url("images/imgBG.jpg") no-repeat center/cover;
   color:rgb(128, 6, 30);
   text-align:center;
   margin:0;
@@ -138,9 +138,10 @@ box-shadow:
   <input id="from" name="from" placeholder="From (Your Name)" required>
 
   <select id="bg" name="background">
-    <option value="flower">🌸 Send Flowers</option>
-    <option value="sweet">🍬 Send Sweets</option>
-    <option value="cracker">🎇 Send Crackers</option>
+    <option value="Flower">🌸 Send Flowers</option>
+    <option value="Sweet">🍬 Send Sweets</option>
+    <option value="Cracker">🎇 Send Crackers</option>
+    <option value="Chocolate">🍫 Send Chocolates</option>
   </select>
 
    <!-- REQUIRED FOR formspree -->
@@ -205,14 +206,17 @@ function updateCard(){
   cardFrom.innerText = "– " + from.value;
 
   // background selection
-  if(bg.value === "flower")
+  if(bg.value === "Flower")
     card.style.background = "url('images/Flower.jpg') no-repeat center/cover";
 
-  if(bg.value === "sweet")
-    card.style.background = "url('images/Sweets.jpg') no-repeat center/cover";
+  if(bg.value === "Sweet")
+    card.style.background = "url('images/Sweet.jpg') no-repeat center/cover";
 
-  if(bg.value === "cracker")
+  if(bg.value === "Cracker")
     card.style.background = "url('images/Cracker.jpg') no-repeat center/cover";
+
+  if(bg.value === "Chocolate")
+    card.style.background = "url('images/Chocolate.jpg') no-repeat center/cover";  
 
 // GEOLOCATION - START
 
